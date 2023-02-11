@@ -1,0 +1,50 @@
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: JSON/HTTP service in Golang, that returns the matching timestamps of
+    a periodic task.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Periodic Task Api
+  version: "1.0"
+paths:
+  /ptlist:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Period
+        example: 1y,1mo,1d,1h
+        in: query
+        name: period
+        type: string
+      - description: Timezone
+        example: America/Los_Angeles
+        in: query
+        name: tz
+        type: string
+      - description: Start point
+        example: 20060102T150405Z
+        in: query
+        name: t1
+        type: string
+      - description: End point
+        example: 20060102T150405Z
+        in: query
+        name: t2
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Returns all matching timestamps of a periodic task between 2 points
+        in time.
+swagger: "2.0"

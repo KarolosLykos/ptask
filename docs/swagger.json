@@ -1,0 +1,71 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "JSON/HTTP service in Golang, that returns the matching timestamps of a periodic task.",
+        "title": "Periodic Task Api",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.swagger.io/support",
+            "email": "support@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/ptlist": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Returns all matching timestamps of a periodic task between 2 points in time.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "1y,1mo,1d,1h",
+                        "description": "Period",
+                        "name": "period",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "example": "America/Los_Angeles",
+                        "description": "Timezone",
+                        "name": "tz",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "example": "20060102T150405Z",
+                        "description": "Start point",
+                        "name": "t1",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "example": "20060102T150405Z",
+                        "description": "End point",
+                        "name": "t2",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        }
+    }
+}
