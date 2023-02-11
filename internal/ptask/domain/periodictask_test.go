@@ -44,7 +44,7 @@ func TestGetInvocationPoint(t *testing.T) {
 				PeriodType: constants.Year,
 			},
 			start:           "2014-07-14 23:46:03 +0300 EEST",
-			invocationPoint: "2015-01-01 00:00:00 +0200 EET",
+			invocationPoint: "2015-01-01 00:00:00 +0300 EEST",
 		},
 		{
 			name: "month period",
